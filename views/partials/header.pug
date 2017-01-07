@@ -14,7 +14,7 @@ nav.navbar.navbar-default
         li
           a(href='/shopping-cart') 
             i.fa.fa-shopping-cart(aria-hidden='true') Shopping Cart 
-              if session.cart.totalQty
+              if session.cart
                 span.badge= session.cart.totalQty
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')

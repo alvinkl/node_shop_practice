@@ -1,7 +1,7 @@
 extends ../layouts/layout
 
 block content
-  mixin thumbnail(imagePath, title, description, price)
+  mixin thumbnail(imagePath, title, description, price, id)
     .col-sm-6.col-md-4
       .thumbnail
         img(src=imagePath).img-responsive
@@ -10,9 +10,9 @@ block content
           p.description= description
           .clearfix
             .price.pull-left $ #{price}
-            a.btn.btn-success.pull-right(href='#', role='button') Add to Shopping Cart
+            a.btn.btn-success.pull-right(href='/add-to-cart/'+id, role='button') Add to Shopping Cart
   
   each product in products
     .row
       each item in product
-        +thumbnail(item.imagePath, item.title, item.description, item.price)
+        +thumbnail(item.imagePath, item.title, item.description, item.price, item.id)

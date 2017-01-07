@@ -12,23 +12,24 @@ nav.navbar.navbar-default
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li
-          i.fa.fa-shopping-cart(aria-hidden='true')
-          a(href='#') Shopping Cart
+          a(href='/shopping-cart') 
+            i.fa.fa-shopping-cart(aria-hidden='true') Shopping Cart 
+              if session.cart.totalQty
+                span.badge= session.cart.totalQty
         li.dropdown
           a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-            | User Management 
+            i.fa.fa-user(aria-hidden='true') User Management 
             span.caret
+        
           ul.dropdown-menu
             if login
               li 
-                i.fa.fa-user(aria-hidden='true')
                 a(href='/user/profile') User Account
               li.divider(role='separator')
               li
                 a(href='/user/logout') Logout
             else
-              li 
-                i.fa.fa-user(aria-hidden='true')
+              li
                 a(href='/user/signup') Sign up
               li
                 a(href='/user/signin') Sign in

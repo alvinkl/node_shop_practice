@@ -1,0 +1,32 @@
+extends ../layouts/layout
+
+block content
+  if products
+    .row
+      .col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        ul.list-group
+          each product in products
+            li.list-group-item
+              span.badge= product.qty
+              strong= product.item.title
+              span.label.label-success $ #{ product.price }
+              .btn-group
+                a(data-toggle='dropdown').dropdown-toggle 
+                  text Action
+                  span.caret
+                  ul.dropdown-menu
+                    li
+                      a(href='#') Reduce by 1
+                    li
+                      a(href='#') Remove All 
+      .row
+        .col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+          strong Total: #{totalPrice}
+      hr
+      .row
+        .col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+          button(tyoe='button').btn.btn-success Checkout
+  else
+    .row
+      .col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        h2 No Items in Cart
